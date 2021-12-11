@@ -2,16 +2,25 @@ name: Update gist
 on:
   push:
     branches:
-      - master
+    - main
+    - release/*
+  pull_request:
+    branches:
+    - main  
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 2 * * 1-5"
+  workflow_dispatch:  
 jobs:
+  my_job:
+    name: deploy to staging
+    runs-on: ubuntu-18.04
   update-gist:
     runs-on: ubuntu-latest
     steps:
-      - name: Update gist
-        uses: maxam2017/productive-box@master
+      - name: Setup Node
+        uses: actions/setup-node@v1
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: ${{ secrets.GIST_ID }}
+          GH_TOKEN: ${{ secrets.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 }}
+          GIST_ID: ${{ secrets.test }}
           TIMEZONE: Asia/Seoul
+  
