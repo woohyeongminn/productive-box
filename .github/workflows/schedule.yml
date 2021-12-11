@@ -21,6 +21,6 @@ jobs:
         uses: actions/setup-node@v1
         env:
           GH_TOKEN: ${{ secrets.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 }}
-          GIST_ID: ${{ secrets.test }}
+          GIST_ID: ${{ secrets.Anything.. }}
           TIMEZONE: Asia/Seoul
   
